@@ -88,6 +88,7 @@ class ProductItem extends HTMLElement {
     this.button = this.root.querySelector(".cart_button");
     this.button.setAttribute("inside", added_cart);
     this.button.setAttribute("id", temp_id);
+    
     this.button.onclick = function() {
       
       //console.log(this);
@@ -104,18 +105,20 @@ class ProductItem extends HTMLElement {
       } 
       else {
 
-        //console.log(this);
         this.setAttribute("inside", 1);
         //console.log(this);
+        
         /* if adding to cart, add 1 to counter */
         this.innerHTML = "Remove from Cart";
-        //console.log(this);
+
         add_item(this.getAttribute("id"));
         //console.log(this);
         let cart_counter = parseInt(document.getElementById("cart-count").innerHTML);
         document.getElementById("cart-count").innerHTML = cart_counter + 1;
       }
     };
+    
+    
     
     /* Change button text */
     if (added_cart) {
