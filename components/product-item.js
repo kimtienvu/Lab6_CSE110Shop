@@ -82,18 +82,12 @@ class ProductItem extends HTMLElement {
   </li>`;
 
     /* Add to Cart button functionality */
+    temp_id = "id_" + index;
     this.root = this.attachShadow({ mode: 'open' });
     this.root.appendChild(template_format.content.cloneNode(true)); 
     this.button = this.root.querySelector(".cart_button");
-    
-    //console.log(this);
-    //console.log(this.button.attributes);
-    
     this.button.setAttribute("inside", added_cart);
-    temp_id = "id_" + index;
     this.button.setAttribute("id", temp_id);
-
-    // Handle button clicking for cart.
     this.button.onclick = function() {
       
       //console.log(this);
@@ -102,7 +96,7 @@ class ProductItem extends HTMLElement {
         //console.log(this);
         this.setAttribute("inside", 0);
         
-        // If removing from cart, subtract 1 from counter
+        /* If removing from cart, subtract 1 from counter */
         this.innerHTML = "Add to Cart";
         remove_item(this.getAttribute("id"));
         let cart_counter = parseInt(document.getElementById("cart-count").innerHTML);
@@ -113,7 +107,7 @@ class ProductItem extends HTMLElement {
         //console.log(this);
         this.setAttribute("inside", 1);
         //console.log(this);
-        //if adding to cart, add 1 to counter
+        /* if adding to cart, add 1 to counter */
         this.innerHTML = "Remove from Cart";
         //console.log(this);
         add_item(this.getAttribute("id"));
@@ -123,6 +117,7 @@ class ProductItem extends HTMLElement {
       }
     };
     
+    /* Change button text */
     if (added_cart) {
       this.button.innerHTML = "Remove from Cart";
       //console.log(this);
