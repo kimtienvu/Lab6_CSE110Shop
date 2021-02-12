@@ -102,6 +102,8 @@ class ProductItem extends HTMLElement {
         remove_item(this.getAttribute("id"));
         let cart_counter = parseInt(document.getElementById("cart-count").innerHTML);
         document.getElementById("cart-count").innerHTML = cart_counter - 1;
+        alert("Removed from Cart!");
+        
       } 
       else {
 
@@ -115,6 +117,7 @@ class ProductItem extends HTMLElement {
         //console.log(this);
         let cart_counter = parseInt(document.getElementById("cart-count").innerHTML);
         document.getElementById("cart-count").innerHTML = cart_counter + 1;
+        alert("Added to Cart!");
       }
     };
     
@@ -126,5 +129,6 @@ class ProductItem extends HTMLElement {
       //console.log(this);
     }
   }
+  
 }
 customElements.define('product-item', ProductItem);

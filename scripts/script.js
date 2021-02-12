@@ -22,7 +22,6 @@ window.addEventListener('DOMContentLoaded', () => {
     cart_element.innerHTML = 0;
   }
   fetchMyText();
-  
 
 });
 
@@ -61,4 +60,5 @@ async function fetchMyText() {
     
     i++;
   })
+
 }
